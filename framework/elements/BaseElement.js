@@ -1,5 +1,4 @@
 import Browser from '../browser/Browser.js';
-import Timeouts from '../constants/Timeouts.js';
 import ElementType from '../constants/ElementType.js';
 import Logger from '../utils/Logger.js';
 import ElementStateProvider from './helper/StateProvider.js';
@@ -74,7 +73,6 @@ export default class BaseElement {
         const logMsg = byJS ? ' by JS executing' : '';
         Logger.info(`${this.log()}Click at element${logMsg}`);
         await this.state().waitForExist();
-        // await this.state().waitForClickable();
 
         const element = await this._get$();
         if (byJS) {

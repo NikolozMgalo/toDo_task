@@ -1,8 +1,6 @@
 
 import Logger from '../utils/Logger.js';
 import BaseElement from './BaseElement.js';
-import Keys from '../constants/Keys.js';
-import Browser from '../browser/Browser.js';
 import ElementType from '../constants/ElementType.js';
 import ElementAttributes from '../constants/ElementAttributes.js';
 
