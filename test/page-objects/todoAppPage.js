@@ -1,17 +1,16 @@
 import { Label, Button, Input, Checkbox } from '../../framework/elements/index.js';
 import BasePage from '../../framework/page/BasePage.js';
-import { PreciseTextLocator } from '../../framework/utils/locatorHelper.js';
 
 class ToDoAppPage extends BasePage {
     constructor() {
         super(new Label("//*[@id='root']", "Todo Page"), "Todo Page");
         this.taskInputField = new Input("//*[@id='todo-input']", "Input Field");
-        this.taskLabel = (text) => new Input(PreciseTextLocator(text), `Task with title ${text}`);
+        this.taskLabel = (text) => new Input(`//label[@data-testid="todo-item-label" and contains(text(), "${text}")]`, `Task with title ${text}`);
         this.taskCheckBox = (text) => new Checkbox(`//label[contains(text(), '${text}')]/preceding-sibling::input[@type="checkbox"]`, `${text} Checkbox`);
         this.taskDeleteButton = (text) => new Button(`//label[text()="${text}"]/following-sibling::button[@class="destroy"]`, `Delete ${text} Button`);
-        this.filterButton = (text) => new Button(PreciseTextLocator(text), `${text} Filter`);
+        this.filterButton = (text) => new Button(`//ul[@class="filters"]//a[text()="${text}"]`, `${text} Filter`);
         this.toDoCounter = new Label("//*[@class='todo-count']", "Todo Counter");
-        this.taskValue = new Input(`//main//input[@id="todo-input"]`, 'Value to edit');
+        this.taskValue = (text) => new Input(`//*[@id="todo-input" and @value="${text}"]`, `Task ${text} Value`);
     }
 
     async typeInTaskInputField(text) {
@@ -20,6 +19,10 @@ class ToDoAppPage extends BasePage {
 
     async getTaskByText(text) {
         return this.taskLabel(text).getText();
+    }
+
+    async isTaskDisplayed(text) {
+        return this.taskLabel(text).state().isDisplayed();
     }
 
     async markCompleted(text) {
@@ -48,7 +51,7 @@ class ToDoAppPage extends BasePage {
 
     async editTask(text1,text2) {
         await this.taskLabel(text1).doubleClick();
-        await this.taskValue.typeText(text2);
+        await this.taskValue(text1).typeText(text2);
     }
 
     async cancelEditing() {

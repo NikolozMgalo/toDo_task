@@ -2,14 +2,9 @@
 import Logger from '../utils/Logger.js';
 import BaseElement from './BaseElement.js';
 import ElementType from '../constants/ElementType.js';
-import ElementAttributes from '../constants/ElementAttributes.js';
-
-// const maskedValue = '***********';
 
 const MouseButtons = {
-    RIGHT: 'right',
-    MIDDLE: 'middle',
-    DOUBLE: 'double',
+    DOUBLE: 'double'
   };
 
 export class Input extends BaseElement {
@@ -52,33 +47,6 @@ export class Input extends BaseElement {
   }
 
   /**
-   * Clear text and then type
-   * @param {string} value - Text to type
-   * @returns {Promise<void>}
-   */
-  async typeTextWithClear(value) {
-    return this._type(value, { secret: false, clear: true });
-  }
-
-  /**
-   * Type text hiding value in log
-   * @param {string} value - Text to type
-   * @returns {Promise<void>}
-   */
-  async typeSecret(value) {
-    return this._type(value, { secret: true, clear: false });
-  }
-
-  /**
-   * Clear text and then type hiding value in log
-   * @param {string} value - Text to type
-   * @returns {Promise<void>}
-   */
-  async typeSecretWithClear(value) {
-    return this._type(value, { secret: true, clear: true });
-  }
-
-  /**
    * Get value of the Input element
    * @returns {Promise<string>} Value from element
    */
@@ -107,14 +75,6 @@ export class Input extends BaseElement {
   }
 
   /**
-   * Get placeholder from element
-   * @returns {Promise<string>} Placeholder value
-   */
-  async getPlaceholder() {
-    return this.getAttribute(ElementAttributes.PLACEHOLDER);
-  }
-
-  /**
    * Click on the element
    * @param {string} type - type of mouse button to click
    * @returns {Promise<void>}
@@ -132,7 +92,7 @@ export class Input extends BaseElement {
     }
   }
 
-    /**
+  /**
    * Double click on the element
    * @returns {Promise<void>}
    */

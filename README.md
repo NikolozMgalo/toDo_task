@@ -19,7 +19,7 @@ The test suite follows the **Behavior-Driven Development (BDD) methodology**, us
 - **Feature Files (`.feature`)**: Describe the test scenarios in human-readable language.
 - **Step Definitions (`.js`)**: Implement the test logic for each scenario step.
 - **Page Object Model (POM)**: Encapsulates UI elements and actions to promote reusability and maintainability.
-- **Configuration (`wdio.conf.js`)**: Defines test execution settings, including browser configurations, test reporters, and environment variables.
+- **Configuration (`main.wdio.conf.js & chrome.cucumber.conf.js`)**: Defines browser configurations, test reporters, Cucumber configuration.
 
 ## **Test Scenarios**
 The test suite consists of **8 scenarios** (4 positive, 4 negative), covering both functional and edge cases:
@@ -49,13 +49,13 @@ The test suite consists of **8 scenarios** (4 positive, 4 negative), covering bo
 ## **Test Reporting**
 The framework integrates **Allure Reporting**, which provides:
 - Detailed test execution reports
-- Screenshots on test failures
+- Screenshots
 - Step-by-step execution logs
 - Trend analysis over multiple test runs
 
 To generate and view the report:
 ```sh
-allure generate allure-results --clean && allure open
+allure generate --clean && allure open
 ```
 
 ## **How to Run the Tests**
@@ -74,9 +74,3 @@ allure generate allure-results --clean && allure open
    ```sh
    npm run test
    ```
-   
-
-## **Conclusion**
-This test suite ensures the To-Do App’s key functionalities work correctly and efficiently. The **POM pattern** and **BDD approach** enhance maintainability, readability, and collaboration, while **Allure reporting** provides valuable test insights.
-
-

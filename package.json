@@ -1,5 +1,5 @@
 {
-  "name": "a1qa-wdio-framework",
+  "name": "todo-wdio-framework",
   "type": "module",
   "scripts": {
     "test": "wdio run ./configs/chrome.cucumber.conf.js"

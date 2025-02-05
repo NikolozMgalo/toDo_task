@@ -54,7 +54,7 @@ Feature: To-Do App Functionality
   @addingEmptyTask
   Scenario: adding empty task
     When User has a task 'Do laundry' in the task list
-    And  User has a task 'Walk the dog' in the task list
+    And User has a task 'Walk the dog' in the task list
     And User inputs ' ' in input field
     And User clicks 'Enter' to add task
     Then List summary shows '2 items left!'

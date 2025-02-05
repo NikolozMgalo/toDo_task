@@ -1,32 +1,17 @@
 
 import Timeouts from '../constants/Timeouts.js';
 import Logger from '../utils/Logger.js';
-import { Dialog, File, IFrame, Window } from './entities/index.js';
+import { Window } from './entities/Window.js';
 
 class Browser {
   #Window;
-  #Dialog;
-  #File;
-  #IFrame;
 
   constructor() {
     this.#Window = new Window();
-    this.#Dialog = new Dialog();
-    this.#File = new File();
-    this.#IFrame = new IFrame();
   }
 
   get Window() {
     return Object.assign(this.#Window, { browser: this.#getBrowser() });
-  }
-  get Dialog() {
-    return Object.assign(this.#Dialog, { browser: this.#getBrowser() });
-  }
-  get File() {
-    return Object.assign(this.#File, { browser: this.#getBrowser() });
-  }
-  get IFrame() {
-    return Object.assign(this.#IFrame, { browser: this.#getBrowser() });
   }
 
   /**
@@ -45,28 +30,6 @@ class Browser {
   async openUrl(url) {
     Logger.info(`Open url: "${url}"`);
     return this.#getBrowser().url(url);
-  }
-
-  /**
-   * Get current url with logging
-   * @returns {Promise<string>} result of getUrl function
-   */
-  async getCurrentUrl() {
-    Logger.info('Get current url');
-    const url = await this.#getBrowser().getUrl();
-    Logger.info(`Current url: "${url}"`);
-    return url;
-  }
-
-  /**
-   * Execute JS code in the browser
-   * @param {string} jsCode - JS code to execute in the browser
-   * @param {string} args - arguments that will be used in the JS code executing
-   * @returns {Promise<void>} result of getUrl function
-   */
-  async executeScript(jsCode, args) {
-    Logger.info(`Execute JS code in the browser:\n"${jsCode}"`)
-    return this.#getBrowser().execute(jsCode, args);
   }
 
   /**

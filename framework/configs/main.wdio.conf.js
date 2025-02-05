@@ -9,11 +9,5 @@ export const mainConfig = {
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
     reporters: ['spec'],
-    baseUrl: 'https://todomvc.com/examples/react/dist/',
-
-    afterTest: async function (test, context, { error, result, duration, passed, retries }) {
-        if (!passed) {
-            await browser.takeScreenshot();
-        }
-    }
+    baseUrl: 'https://todomvc.com/examples/react/dist/'
 };

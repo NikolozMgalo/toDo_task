@@ -3,8 +3,6 @@ import Logger from "../utils/Logger.js";
 import BaseElement from "./BaseElement.js";
 
 const MouseButtons = {
-  RIGHT: 'right',
-  MIDDLE: 'middle',
   DOUBLE: 'double',
 };
 
@@ -30,22 +28,6 @@ export class Button extends BaseElement {
     } else {
       return element.click({ button: type });
     }
-  }
-
-  /**
-   * Click by right button on the element
-   * @returns {Promise<void>}
-   */
-  async rightClick() {
-    return this.#click(MouseButtons.RIGHT);
-  }
-
-  /**
-   * Click by middle button on the element
-   * @returns {Promise<void>}
-   */
-  async middleClick() {
-    return this.#click(MouseButtons.MIDDLE);
   }
 
   /**

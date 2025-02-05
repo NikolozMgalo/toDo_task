@@ -8,22 +8,6 @@ export default class BasePage {
   }
 
   /**
-   * Get name of the page
-   * @returns {string} Name of the page
-   */
-  getPageName() {
-    return this.name;
-  }
-
-  /**
-   * Get unique element of the page
-   * @returns {<T>BaseElement} unique element of the page
-   */
-  getPageUniqueElement() {
-    return this.uniqueElement;
-  }
-
-  /**
    * Check if the form is opened, with 'pageLoadTime' timeout
    * @returns {Promise<boolean>} true if opened else false
    */
@@ -35,5 +19,4 @@ export default class BasePage {
     Logger.info(`Page "${this.name}" is opened - "${isOpened}"`);
     return isOpened;
   }
-
 }
