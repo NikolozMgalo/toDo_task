@@ -16,4 +16,14 @@ export class Checkbox extends BaseElement {
     Logger.info(`${this.log()}Click at checkbox to check`);
     return this.click();
   }
+
+  /**
+   * Check if checkbox element is selected 
+   * @returns {Promise<boolean>}
+   */
+  async isChecked() {
+    await this.state().isDisplayed();
+    Logger.info(`${this.log()}Checking if checkbox is selected`);
+    return this.state().isSelected();
+  }
 }

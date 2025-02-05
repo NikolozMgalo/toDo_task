@@ -19,7 +19,7 @@ The test suite follows the **Behavior-Driven Development (BDD) methodology**, us
 - **Feature Files (`.feature`)**: Describe the test scenarios in human-readable language.
 - **Step Definitions (`.js`)**: Implement the test logic for each scenario step.
 - **Page Object Model (POM)**: Encapsulates UI elements and actions to promote reusability and maintainability.
-- **Configuration (`main.wdio.conf.js & chrome.cucumber.conf.js`)**: Defines browser configurations, test reporters, Cucumber configuration.
+- **Configuration (`main.wdio.conf.js & chrome.cucumber.conf.js`)**: Defines browser configurations, test reporters, Cucumber configuration 
 
 ## **Test Scenarios**
 The test suite consists of **8 scenarios** (4 positive, 4 negative), covering both functional and edge cases:
@@ -49,7 +49,7 @@ The test suite consists of **8 scenarios** (4 positive, 4 negative), covering bo
 ## **Test Reporting**
 The framework integrates **Allure Reporting**, which provides:
 - Detailed test execution reports
-- Screenshots
+- Screenshots on test failures
 - Step-by-step execution logs
 - Trend analysis over multiple test runs
 

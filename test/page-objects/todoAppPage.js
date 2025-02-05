@@ -30,7 +30,7 @@ class ToDoAppPage extends BasePage {
     }
 
     async isMarkedCompleted(text) {
-        return this.taskCheckBox(text).state().isSelected();
+        return this.taskCheckBox(text).isChecked();
     }
 
     async deleteTask(text) {
